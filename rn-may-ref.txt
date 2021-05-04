@@ -1,0 +1,511 @@
+
+Native app development 
+    - android apps - Java, Kotlin  
+    - ios apps - objectiveC, swift 
+
+hybrid app developement 
+    - ionic 
+    - phonegap
+    - cordova 
+
+cross platform app developement
+    - ReactNative
+    - Flutter 
+
+
+
+Language                    library                         framework
+
+C#                          standard libraries              .net
+
+
+Java                        standard libraries              spring 
+                            android SDK
+                            Gson / jackson 
+
+Python                                                         dgango
+
+Swift                       
+
+Kotlin 
+
+Go 
+
+JavaScript                  JQuery, jQuery mobile,               angular 
+                            React, ReactNative  
+
+Dart                                                             Flutter 
+
+    |                               |
+provide programming         simplifies the task 
+capabilities 
+
+
+
+JavaScript 
+---------------
+    - javascript is a interpreted language
+    -** it is executed only inside browser using 'JavaScript Engine' 
+
+    - every browser has a javascript engine 
+            - Chrome            - V8 
+            - mozilla firefox   - spider monkey 
+            - IE                - chakra 
+            - ...
+
+    - 1997, introduced
+    - 1997, it was submitted to ECMA for standardization 
+        - since then ECMA keeps publishing the 'Standards / Specifications' 
+        - these Specifications are implemented by diff browsers i.e. chrome, mozilla, etc.
+        - the implementation of the standards/Specifications is called 'ECMAScript'
+
+    - 1997  - ES1 
+    - 1998  - ES2 
+    - 1999  - ES3 
+    - 2009  - ES5       <-- javascript 
+    - 2015  - ES6 / ECMAScript 2015 <--- introduced lot of new features 
+    -
+    -
+    -
+    -
+    - 2020 - ES11
+
+    - after 2008, NodeJS is introduced 
+        - NodeJS provides execution environment for Javascript code 
+        - using nodejs we can also execute JS code outside the browser
+
+    - 
+
+Modern JavaScript / ES6 / 2015
+-----------------------------
+    - not compatible with all the browser 
+         - all the browsers have not yet fully implemented the new features \
+
+    - provides additional features 
+        - module system 
+        - classes & object 
+        - promise, async, await 
+        - generators 
+        - maps, sets 
+        - let, const keyword 
+        - object destructuring 
+        - improvised array methods, string methods 
+        - spread operator
+        - arrow functions 
+        - ....
+
+JavaScript Tools 
+-------------------
+
+    - Babel 
+        - transpiler  tool 
+        - converts your modern js code into legacy code 
+
+    - Webpack 
+        - bundler tool 
+        - bundles several files together into 1 file 
+
+ReactJS 
+-----------
+    - it is javascript library for UI for webapps 
+
+
+React Native 
+----------------
+    - written on top of ReactJS
+    - it is JS library for developing mobile apps 
+
+
+
+
+
+
+
+
+
+
+    Variable declarations in JS 
+    --------------------------------------
+        var keyword 
+            - globally scoped 
+            - can be reclared 
+
+                var x = 10;
+
+                var x = 'welcome; 
+
+
+        let keyword 
+            - block scoped 
+            - cannot be redeclared 
+
+                let x = 10;
+
+                let x = 43      //error 
+
+
+        const keyword 
+            - block scoped 
+            - cannot be redeclared 
+            - can be assigned only once 
+
+
+        JavaScript functions
+        ------------------------
+            - in JS functions are 'First Class' objects 
+                    - functions can be ... 
+                         - stored in a variable 
+                         - passed as arguments to another function 
+                         - returned from another function 
+
+        //named function 
+            
+                function sayHello(name){
+                    return 'Hello ' + name;
+                }
+
+        //anonymous function 
+
+            let sayHello =  function(name){
+                    return 'Hello ' + name;
+                }
+
+        //arrow function 
+            - it is more abbreviated way of writing a function 
+            - arrow function doesn't have 'this' property, 'arguments' property  
+
+             let sayHello =  (name) => {
+                    return 'Hello ' + name;
+                }
+
+             let sayHello =  (name) =>  'Hello ' + name;
+
+              let sayHello =  name =>  'Hello ' + name;
+
+
+
+                            Window 
+                              |
+        ------------------------------------------------------------
+        history             location            document        ....
+                                                    |
+                                                DocumentElement 
+                                                    |
+                                        ---------------------------
+                                        body                    head 
+                                          |
+                        -------------------------------------
+                        Div             Div             Form 
+                         |
+        --------------------------
+
+
+    - Spread Operator 
+    ----------------------
+
+
+
+    Object Destructuring 
+    -----------------------
+
+            let Person = {
+                fname : 'Abhijit',
+                lname : 'Jena',
+                age : '23',
+                location : 'Odisha'
+            }
+
+            let fname = Person.fname 
+            let lname = Person.lname
+            let age = Person.age 
+            let location = Person.location
+
+                or
+
+            let { fname, lname, age, location } = Person;
+
+
+
+             let p1 = {
+                fname : 'Abhijit',
+                lname : 'Jena',
+                age : '23',
+                location : 'Odisha',
+                ...
+                ....
+                ....
+                .....
+                ....
+                .....
+                ...
+            }
+
+            function showPerson({fname, lname, age}){
+
+                    console.log(fname)
+                    console.log(lname)
+                    console.log(person.age)
+            }
+
+            showPerson(p1)
+
+
+        Array methods 
+        ---------------------
+
+        1. forEach(callback)
+                - it executes the given callback for each element in the array 
+                - to iterate over each element & process the element 
+
+                    const names = [ 'Abhijit' ,'Appavu', 'Dharma', 'Vidhi', 'Vamsi','mansa' ]
+
+                    names.forEach(function(item, index){
+                        console.log(item + ' ' + index)
+                    })
+
+        2. map(callback)
+                    - it executes the given callback for each element in the array 
+                    - returns a new array containing the values returned by the callback 
+
+                    const names = [ 'Abhijit' ,'Appavu', 'Dharma', 'Vidhi', 'Vamsi','mansa' ]
+
+                   const newArray = names.map((item)=>{
+                          return  item.toUpperCase()
+                    })
+
+        3. filter(callback)
+                - it executes the given callback for each element in the array 
+                - returns a new array containing only those elements 
+                        for which the callback returns true 
+
+        4. find(callback)
+
+        5. findIndex(callback)
+
+        6. push(element)
+
+        7. pop()
+
+        8. unshift(element)
+
+        9. shift() 
+
+
+
+
+
+
+HTML 
+    - 'what' contents you want to place on your webpage 
+    - responsible to define the structure of webpages 
+
+CSS 
+    - 'how' content should appear
+    - to define the style rules 
+
+JavaScript / ES6 
+        - write code to validate forms 
+        - Business logic 
+        - http calls 
+        - event handling 
+        - DOM manipulation 
+        - etc.
+
+jQuery
+    - it is just a JS library which simplify the js tasks 
+
+Bootstrap 
+    - make your applications responsive 
+    - HTML5+CSS+JQuery
+
+
+ReactJS
+-----------
+    - JS library for developing UI/web applications 
+    - it has VirtualDOM
+
+
+
+    1. ReactJS library 
+        - it helps to create components 
+
+    2. ReactDOM Library 
+
+        - render a component in browser 
+
+        ReactDOM.render(<Product />, document.getElementById('root'))
+
+    3. Component 
+            - main building block of react applications 
+            - responsible to render a particular patch on the screen 
+            - we can encapsulate the data, view and logic together inside a single unit 
+            - in reactjs component is just function or a class 
+                    which describes the UI 
+
+            import React from 'react'
+
+            function Product(){
+                return (
+                    //jsx code 
+                    <div className='product'>
+                        <h2>RealMe Narzo 30A</h2>
+                        <ul>
+                            <li>some description 1</li>
+                            <li>some description 2</li>
+                            <li>some description 3</li>
+                            <li>some description 4</li>
+                        </ul>
+                        <p> Offer : 15% </p>
+                        <button>Buy Now!</button>
+                    </div>
+                )
+            }
+
+
+            function App(){
+                return (
+                    <div>
+                        <Product />
+                        <Product />
+                    </div>
+                )
+            }
+
+            **also create a component using class 
+
+            import React, {Component} from 'react';
+
+            class Product extends Component {
+
+                    render(){
+                        return (
+                            //jsx code 
+                        )
+                    }
+
+            }
+
+
+
+
+
+    4. JSX
+            - javascript xml 
+            - syntactical sugar for javascript 
+            - it is used to describe the UI in react components 
+            - it looks very similar to html 
+            - jsx code is converted to its equivalent javascript code 
+
+
+            <div> helloworld </div>             //jsx code 
+
+            React.createElement('div',null, 'helloworld')
+
+                <div>
+                    <h1>this is heading</h1>
+                </div>
+
+            React.createElement('div', null, 
+                React.createElement('h1', null, 'this is heading') )
+
+
+    5. Babel 
+            - is responsible to convert jsx into js  
+
+
+Environment setup for React Projects 
+------------------------------------------
+    1. install NodeJS ( 14.X )
+
+    2. VS Code Editor (or any other editor of your choice )
+
+            - VS Code extensions (useful extensions for react, react native )
+                - Auto Import Es6, jsx, Ts, TSX 
+                - reactjs code snippet 
+                - prettieer 
+
+    3. install 'create-react-app' CLI tool 
+
+                > npm install -g create-react-app         
+
+
+    'hello-world' project 
+    --------------------------
+        |
+        |->node_modules
+        |   |-> stores all the libraries your project depends on i.e. react, react-dom, babel, etc.
+        |
+        |->public
+        |   |-> index.html
+        |
+        |
+        |->src
+        |   |-> write & store all of our code 
+        |   |
+        |   |->index.js 
+        |   |   |- entry point of react applications 
+        |   |
+        |   |->app.js
+        |   |   |-> defines application's Root Component 
+        |
+        |->package.json 
+        |   |-> list all the dependendies, configure some scripts 
+        |
+
+
+        
+
+        ES6 Module System 
+        -----------------------
+            - we can export functions,classes,constants from a file    
+                    & import in another file wherever required 
+
+                1. default exports 
+                        - we can have one export per module (per file)
+
+
+                2. named export 
+                        - export multiple items from a file 
+
+
+        
+
+        1. Stateful component / class based / container component 
+                - we can have state 
+                - we can use lifecyle methods to hook some code/logic
+                    which execute during diff phases of component 
+
+                - the 'state' is used to store data which eventually changes 
+                - the component is re-rendered whenever the 'state' changes
+
+                class CourseList extends Component {
+
+                    render(){
+                        return (
+                            //jsx code 
+                        )
+                    }
+                }
+
+
+        2. Stateless component / functional / presentational component 
+
+
+
+
+                function Header(){
+                    return (
+                        //jsx code 
+                    )
+                }
+
+
+
+
+        State = it is a javascript object that stores some data for a component 
+
+                    state = {
+                        property1 : value1,
+                        property2 : value2,
+                        .....
+                    }
