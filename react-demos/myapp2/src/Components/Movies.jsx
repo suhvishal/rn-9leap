@@ -44,6 +44,10 @@ class Movies extends Component {
     this.setState({ sortColumn})
   }
 
+  handleAdd = () => {
+    this.props.history.push('/movies/new')
+  }
+
   render() {
     const { length: count } = this.state.movies;
 
@@ -79,6 +83,10 @@ class Movies extends Component {
 
         <div className="col-9">
           <p>Showing {filteredMovies.length} movies from database...</p>
+          <button onClick={this.handleAdd} className="btn btn-primary">
+            Add Movie
+          </button>
+          
           <MoviesTable 
             movies={movies} 
             onDelete={this.handleDelete}
