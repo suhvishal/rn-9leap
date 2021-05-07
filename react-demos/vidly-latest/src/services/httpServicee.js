@@ -1,5 +1,7 @@
 import  Axios  from 'axios';
 
+
+
 Axios.interceptors.response.use(null, error => {
 
     const expectedError = error.response && 
@@ -14,11 +16,16 @@ Axios.interceptors.response.use(null, error => {
 
     return Promise.reject(error)
 })
+
+ function setJwt(jwt){
+    Axios.defaults.headers.common['x-auth-token'] = jwt
+}
  
 export default {
     get : Axios.get, 
     post : Axios.post, 
     delete : Axios.delete,
     put : Axios.put,
-    patch : Axios.patch
+    patch : Axios.patch,
+    setJwt: setJwt
 }

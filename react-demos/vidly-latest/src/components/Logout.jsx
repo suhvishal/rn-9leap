@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
+import { removeToken } from '../services/authService';
 
 class Logout extends Component {
 
     componentDidMount(){
-        localStorage.removeItem('token')
+        removeToken()
         window.location = '/login'
     }
 
