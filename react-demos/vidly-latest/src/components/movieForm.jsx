@@ -1,8 +1,8 @@
 import React from "react";
 import Joi from "joi-browser";
 import Form from "./common/form";
-import { getGenres } from "../services/fakeGenreService";
-import { getMovie } from "../services/movieService";
+import { getMovie, saveMovie } from "../services/movieService";
+import { getGenres } from '../services/genreService';
 
 class MovieForm extends Form {
   state = {
@@ -37,7 +37,7 @@ class MovieForm extends Form {
   };
 
   async componentDidMount() {
-    const genres = getGenres();
+    const {data : genres} = await getGenres();
     this.setState({ genres });
 
     const movieId = this.props.match.params.id;
@@ -59,10 +59,24 @@ class MovieForm extends Form {
     };
   }
 
-  doSubmit = () => {
-    saveMovie(this.state.data);
+  doSubmit = async () => {
+    
+    try{
+      await saveMovie(this.state.data)
+      this.props.history.push("/movies");
+    }catch(ex){
+      if(ex.response.status === 400){
+        const errors = { ...this.state.errors }
+        errors.title = ex.response.data 
+        this.setState({errors})
+      }
+      if(ex.response.status===401){
+        alert('you have not logged in to perform this operation')
+      }
 
-    this.props.history.push("/movies");
+    }
+
+
   };
 
   render() {

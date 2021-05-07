@@ -52,10 +52,12 @@ class Movies extends Component {
     }catch(ex){
         if(ex.response && ex.response.status === 404)
           alert('this movie has already been deleted')
-
+        
+        if(ex.responsee && ex.response.status === 401)
+          alert('you are not authenticated to perform this task')
+      
         this.setState({movies : originalMovies})
     }
-
   };
 
   handleLike = movie => {

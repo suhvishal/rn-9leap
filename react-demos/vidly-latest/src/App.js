@@ -9,16 +9,28 @@ import NavBar from "./components/navBar";
 import LoginForm from "./components/loginForm";
 import RegisterForm from "./components/registerForm";
 import "./App.css";
+import { getCurrentUser } from "./services/authService";
+import Logout from './components/Logout';
 
 class App extends Component {
+
+  state = {}
+
+  componentDidMount(){
+    const user = getCurrentUser();
+    this.setState({user})
+  }
+
   render() {
     return (
       <React.Fragment>
-        <NavBar />
+        <NavBar user={this.state.user} />
         <main className="container">
           <Switch>
             <Route path="/register" component={RegisterForm} />
             <Route path="/login" component={LoginForm} />
+            <Route path="/logout" component={Logout} />
+
             <Route path="/movies/:id" component={MovieForm} />
             <Route path="/movies" component={Movies} />
             <Route path="/customers" component={Customers} />
