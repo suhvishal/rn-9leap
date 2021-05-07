@@ -462,7 +462,7 @@ Environment setup for React Projects
 
                 1. default exports 
                         - we can have one export per module (per file)
-                        - can be imported using any name, withough curly bracket 
+                        - can be imported using any name, withough curly
 
                 2. named export 
                         - export multiple items from a file 
@@ -510,3 +510,9 @@ Environment setup for React Projects
                         property2 : value2,
                         .....
                     }
+
+
+
+        '/'             Home 
+
+        '/login'
