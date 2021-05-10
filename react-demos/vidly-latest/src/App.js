@@ -11,6 +11,7 @@ import RegisterForm from "./components/registerForm";
 import "./App.css";
 import { getCurrentUser } from "./services/authService";
 import Logout from './components/Logout';
+import ProtectedRoute from "./components/common/ProtectedRoute";
 
 class App extends Component {
 
@@ -22,6 +23,7 @@ class App extends Component {
   }
 
   render() {
+    const { user } = this.state;
     return (
       <React.Fragment>
         <NavBar user={this.state.user} />
@@ -32,11 +34,18 @@ class App extends Component {
             <Route path="/logout" component={Logout} />
 
             <Route path="/movies/:id" component={MovieForm} />
-            <Route path="/movies" component={Movies} />
-            <Route path="/customers" component={Customers} />
-            <Route path="/rentals" component={Rentals} />
+            
+            <ProtectedRoute path="/movies" render={(props)=> <Movies  {...props}/>} />
+
+          
+            <ProtectedRoute path='/customers' component={Customers} />
+
+            <ProtectedRoute path='/rentals' component={Rentals} />
+
             <Route path="/not-found" component={NotFound} />
+
             <Redirect from="/" exact to="/movies" />
+
             <Redirect to="/not-found" />
           </Switch>
         </main>

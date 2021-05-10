@@ -516,3 +516,16 @@ Environment setup for React Projects
         '/'             Home 
 
         '/login'
+
+
+
+
+    Higher order components 
+    -------------------------
+        - it is used to re-use the logic accross components 
+
+
+    Error Boundary 
+    -----------------
+        - it is a component 
+        - it is used to handle errors & show appropriate messages to the user 
