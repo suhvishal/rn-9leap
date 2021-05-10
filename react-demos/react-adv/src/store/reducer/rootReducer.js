@@ -1,27 +1,10 @@
-const INITIAL_STATE = {
-    counter : 0
-}
+import {combineReducers} from 'redux'
+import { counterReducer } from './counterReducer';
+import { countListReducer } from './countListReducer';
 
+const rootReducer = combineReducers({
+    counterReducer,
+    countListReducer
+})
 
-
-export function rootReducer(state=INITIAL_STATE, action){
-
-    //check the action.type, update the state and return new state
-    switch(action.type){
-        case 'INCRE':
-            return { counter : state.counter + 1 }
-
-        case 'DECRE':
-            return { counter : state.counter - 1 }
-        
-        default :
-            return state;
-    } 
-
-    
-}
-
-
-
-
- 
+export default rootReducer
