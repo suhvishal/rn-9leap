@@ -1,11 +1,12 @@
 import './App.css';
+import AnotherCounter from './components/AnotherCounter';
 import MyCounter from './components/MyCounter';
  
 
 function App() {
   return (
     <div>
-      <MyCounter />
+        <AnotherCounter />
     </div>
   );
 }

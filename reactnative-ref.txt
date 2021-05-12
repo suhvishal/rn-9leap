@@ -1,0 +1,104 @@
+ReactNative
+-------------
+    - UI library lets you use javascript + React to build native mobile applications 
+
+
+    javascript + React                  === Native mobiile applications (IOS and Android )
+
+    Userinterface = ReactNative 
+
+    Business Logic = JavaScript 
+
+
+
+    Core Components                 Android object                      IOS object 
+    -----------------               --------------                      -----------
+        - <View>                  android.view.View                     UIView    
+        - Text 
+        - ScrollView
+        - Flatlist
+        - Button
+        - ....
+
+        Community Components / Components provided by 3rd party libraries 
+            - react-native-camera 
+            - react native fingerprint scanner
+            - react native video 
+            - react native navigation
+            - ....
+
+    Own components 
+
+
+
+
+
+Core Components 
+
+
+1. View 
+    - most basic building block 
+    - primarily used for styling and layout of children elements 
+
+    <View>              android.View            UIView 
+
+
+        <Demo title="some title">
+            <p> this is paragraph1 </p>
+        </Demo>
+        <Demo title="some title2">
+            <p> this is paragraph2 </p>
+        </Demo>
+
+
+            function Demo({title, children}){
+                return {
+
+                    {children}
+                }
+            }
+
+
+    Flexbox 
+    --------------
+            flex 
+
+            flexDirection   --- called as main axis
+
+                    flexDirection : column / row / column-reverse / row-reverse 
+
+
+    Text 
+    --------
+        - used to render text on screens 
+
+
+    Image
+    ----------
+        - used to render images 
+        - images/photos can be downloded from the web or imported as files 
+        - images are bundled with the app 
+
+                image1.png 
+                image1@2x.png 
+                image1@3x.png 
+
+            - images imported / static images are scanned at build-time, the image dimentions are included into metadata 
+
+    Button 
+    -----------
+        - show a buttono using the default/standard style for each native platform 
+        - standard buttoon, not very configurable 
+
+
+    Touchables 
+    ------------
+        - buttons, but more configurable 
+        - support custom styling 
+
+            - TouchableOpacity
+            - TouchableHighLight 
+            - TouchableWithoutFeedback 
+            - TouchableNativeFeedback
+
+    
