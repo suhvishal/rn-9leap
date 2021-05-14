@@ -102,3 +102,10 @@ Core Components
             - TouchableNativeFeedback
 
     
+
+    Text Input 
+    --------------
+
+
+        <TextInput
+             />

@@ -7,12 +7,7 @@
  */
 
 import React, { useState } from 'react';
-import myimage1 from './assets/download.jpeg';
 
-import images from './src/utils/imageStore';
-
-
-import type {Node} from 'react';
 
 import {
   
@@ -20,37 +15,30 @@ import {
   Text,
   TouchableOpacity,
   View,
-  Image
+  Image,
+  FlatList
 } from 'react-native';
+
+
+const movies = [
+  {id : 1, title : 'Movie1', description: 'Some description of Movie 1'},
+  {id : 2, title : 'Movie2', description: 'Some description of Movie 2'},
+  {id : 3, title : 'Movie3', description: 'Some description of Movie 3'},
+  {id : 4, title : 'Movie4', description: 'Some description of Movie 4'},
+]
 
 
 function App(){
 
-  const [ count, setCount ] = useState(0)
-
    
   return (
     <View style={styles.container}> 
-
-        {/* <Image 
-          style={styles.myImageStyle}
-          source={ { uri : 'https://cdn.shopify.com/s/files/1/0035/2754/0782/articles/International_Flower_Day_1239x.jpeg?v=1579365491'} } />
-
-        <Image style={styles.myImageStyle}
-            source={images.image1} /> */}
-
-            <TouchableOpacity 
-              style={styles.button}
-              activeOpacity = {0.5}
-              onPress={ ()=> {
-                setCount(count+1)
-              }}>
-
-                  <Text>Press Me!</Text>
-
-              </TouchableOpacity>
-
-            <Text style={styles.text}> {`Pressed the button ${count} times `} </Text>
+        <FlatList 
+          style={styles.listContainer}
+          data={movies}
+          renderItem={ ({item})=> <Text style={styles.rowItem}>{item.title}</Text> }
+          keyExtractor={ (item)=> item.id }/>
+        
 
 
     </View>
@@ -60,25 +48,16 @@ function App(){
 const styles = StyleSheet.create({
   container : {
       flex: 1,
-      alignItems:'center',
-      justifyContent: 'center',
+      
       backgroundColor: 'lightyellow'
   },
-  myImageStyle : {
-    width: 200, 
-    height: 200,
-    margin:10
+  listContainer : {
+    flex : 1
   },
-  button : {
-    padding: 10,
-    borderRadius: 4,
-    borderWidth: 1,
-    borderColor: 'green',
-    backgroundColor: 'lightgreen'
-  },
-  text : {
-    fontSize: 18,
-    padding: 15
+  rowItem : {
+    padding : 15,
+    backgroundColor : 'skyblue',
+    marginBottom : 3
   }
 })
 
