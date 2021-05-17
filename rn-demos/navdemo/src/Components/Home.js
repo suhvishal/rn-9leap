@@ -9,6 +9,11 @@ function Home({ navigation }) {
                 <Button 
                     title="Login"
                     onPress={ ()=> navigation.navigate("Login")  } />
+                 <Button 
+                    title="Customers"
+                    onPress={ ()=> navigation.navigate("Customers", {
+                        customerId : 101
+                    } )  } />
         </View>
     );
 }
