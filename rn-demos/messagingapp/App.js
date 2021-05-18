@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import {View, Text, StyleSheet, Alert, TouchableOpacity, TouchableHighlight} from 'react-native';
 import MessageList from './src/Components/MessageList';
 import Status from './src/Components/Status';
 import { createTextMessage, createImageMessage, createLocationMessage } from './src/utils/messageUtils';
@@ -12,13 +12,40 @@ class App extends Component {
       createTextMessage('Welcome to ReactNative'),
       createImageMessage('http://www.mobileswall.com/wp-content/uploads/2014/11/640-Small-White-Flower-l.jpg'),
       
-    ]
+    ],
+    fullScreenImageId : null
   }
 
 
-  handlePressMessage = () => {
+  handlePressMessage = ({ id, type }) => {
+      //if type -- 'text' -- show alert dialog nd ask confirmation to delete 
+
+      //if type == 'image' --> reset the state of fullScreenImageId with the id of image you receive as parameter
+  }
+
+
+  renderFullScreenImage = ()=> {
+
+      const { fullScreenImageId, messages } = this.state;
+
+      if(!fullScreenImageId) return null; 
+
+      const image = messages.find( m => m.id === fullScreenImageId)
+
+      if(!image) return null; 
+
+      const { uri } = image;
+
+      return (
+        <TouchableHighlight style={styles.fullScrenOverlay}>
+            <Image style={styles.fullScreenImage} source={ {uri} } />
+        </TouchableHighlight>
+      )
 
   }
+
+
+
 
   renderMessageList() {
     const {messages } = this.state;
@@ -83,6 +110,15 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: 'orange',
   },
+  fullScrenOverlay : {
+    ...StyleSheet.absoluteFillObject, 
+    backgroundColor : 'black',
+    zIndex : 2
+  },
+  fullScreenImage : {
+    flex : 1, 
+    resizeMode : 'contain'
+  }
 });
 
 export default App;

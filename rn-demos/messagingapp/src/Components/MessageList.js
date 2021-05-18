@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { PropTypes } from 'prop-types';
 import { MessageShape } from '../utils/messageUtils';
-import { FlatList, StyleSheet, View , Image, Text} from 'react-native';
+import { FlatList, StyleSheet, View , Image, Text, TouchableOpacity} from 'react-native';
 import MapView from 'react-native-maps';
 
 class MessageList extends Component {
@@ -40,9 +40,14 @@ class MessageList extends Component {
 
     renderMessageItem = ({ item })=> { 
 
+        const { onPressMessage } = this.props
+
         return (
             <View style={styles.messageRow} key={item.id}>
+                <TouchableOpacity 
+                        onPress={ ()=> onPressMessage(item)  }>
                     {this.renderMessageBody(item)}
+                </TouchableOpacity>
             </View>
         )
     }

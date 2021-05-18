@@ -109,3 +109,16 @@ Core Components
 
         <TextInput
              />
+
+
+
+    Core API 
+    ----------
+        Alert  - used to diplay modal dialog 
+        BackHandler - controls the back button 
+        CameraRoll  - returns images and videos stored on the device 
+        Dimensions - returns the dimensions of the screen 
+        Geolocation - returns the location of the device, it emits events when the location changes 
+        Keyboard - emits events when the keyboard appears or disappears on the screen 
+        NetInfo - returns the network connectivity info, emits events when connectivity changes 
+        PixelRatio -  
