@@ -122,3 +122,91 @@ Core Components
         Keyboard - emits events when the keyboard appears or disappears on the screen 
         NetInfo - returns the network connectivity info, emits events when connectivity changes 
         PixelRatio -  
+
+
+
+
+        
+
+
+
+
+
+        <Demo>
+                { (layout)=> <p> this is para </p> }
+        </Demo>
+
+
+         <Demo>
+            <h1> this is para <h1>
+         </Demo>
+
+
+        renderInput() {
+            return (
+                <div>
+                    //some ui 
+                </div>
+            )
+        }
+
+        function Demo({children}){
+            return (
+                <div>
+                    { children(layout) }
+                     
+                </div>
+            )
+        }
+
+
+
+
+
+
+
+
+
+        <MeasureLayout>
+                //..child 1 
+                
+
+        </MeasureLayout>
+
+
+
+
+
+        OnLayout function prop  is used by most react components 
+        it is similar to react life cycle.. 
+        onLayout function prop is called every time component updates its dimensions
+
+                <View>
+                    <TextInput />
+                </View>
+
+
+
+
+
+    Redux 
+    -----------
+        - it is a 3rd party js library, used for state management in js apps 
+
+        store 
+            - its a JS object 
+            - represents central state 
+
+        action 
+            - it is a js object 
+            - represents type and payload of an action 
+
+        reducer 
+            - it is a pure function 
+            - it is used to check the action type & modify the state 
+
+
+
+    Redux-Thunk 
+    ---------------
+        -
