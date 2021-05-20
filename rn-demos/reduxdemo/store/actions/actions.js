@@ -5,10 +5,24 @@
  const SAVE = 'SAVE'
 
 //action creator  - separate function to generate an action
- export function increment(){
+ function increment(data){
      return { 
-         type : INCREMENT 
+         type : INCREMENT,
+         payLoad : data
     }
+ }
+
+ export function incrementAsync(){
+     return (dispatch)=>{
+         //write the async task 
+         console.log('increment async task started...')
+         setTimeout(() => {
+            console.log('now dispatching increment action...')
+            const data = 100;   //data recd from server
+            dispatch(increment(data))
+         }, 7000);
+        
+     }
  }
 
  export function add(number){
@@ -27,6 +41,8 @@
  }
 
  export function save(counter){
+
+    
 
      return {
         type: SAVE, payLoad : counter 

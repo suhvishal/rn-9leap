@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { View, StyleSheet, Text, Button } from 'react-native';
 import { connect } from 'react-redux';
-import actionTypes, { add, increment } from '../../store/actions/actions'
+import actionTypes, { add, increment, incrementAsync } from '../../store/actions/actions'
 
 class Counter extends Component {
 
@@ -46,8 +46,8 @@ const mapStateToProps = (store) => {
 
 const mapDispatchToProps = (dispatch)=>{
     return {
-        onIncrement : ()=> dispatch(increment()),
-        onAdd : (number)=> dispatch(add())
+        onIncrement : ()=> dispatch(incrementAsync()),
+        onAdd : (number)=> dispatch(add(number))
     }
 }
 

@@ -209,4 +209,17 @@ Core Components
 
     Redux-Thunk 
     ---------------
-        -
+        - perform asyc operations with redux 
+
+
+    Redux saga 
+    --------------
+            *function demo(){
+                //line 1
+                //line 2            //pause
+                //line 3
+                ....
+                //line n
+
+                return x;
+            }

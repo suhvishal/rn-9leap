@@ -13,7 +13,7 @@ function counterReducer(state = INITIAL_STATE, action){
         case actionTypes.INCREMENT : 
             return {
                 ...state,
-                counter : state.counter + 1
+                counter : state.counter + action.payLoad
             }
 
         case actionTypes.DECREMENT:
@@ -36,6 +36,7 @@ function counterReducer(state = INITIAL_STATE, action){
     }
 
     return state;
+
 }
 
 export default counterReducer;
