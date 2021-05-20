@@ -21,7 +21,6 @@
             const data = 100;   //data recd from server
             dispatch(increment(data))
          }, 7000);
-        
      }
  }
 

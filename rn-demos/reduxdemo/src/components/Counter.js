@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { View, StyleSheet, Text, Button } from 'react-native';
 import { connect } from 'react-redux';
 import actionTypes, { add, increment, incrementAsync } from '../../store/actions/actions'
+import { counterActions } from '../../newStore/store-slicers/counter-slice';
 
 class Counter extends Component {
 
@@ -11,14 +12,14 @@ class Counter extends Component {
 
         return (
             <View style={styles.counterContainer}>
-                <Text style={styles.text}> Counter : { counter }  </Text>
-                <Button style ={ styles.button} 
+                <Text style={styles.text}> Counter : {counter}  </Text>
+               <Button style ={ styles.button} 
                     title="Increment"
                     onPress={ onIncrement } />
 
-                <Button style ={ styles.button} 
+                 {/* <Button style ={ styles.button} 
                     title="Add"
-                    onPress={ ()=> onAdd(5) } />
+                    onPress={ ()=> onAdd(5) } /> */}
             </View>
         );
     }
@@ -40,14 +41,14 @@ const styles = StyleSheet.create({
 
 const mapStateToProps = (store) => {
     return {
-        counter : store.counterReducer.counter
+        counter : store.counterSlice.counter
     }
 }
 
 const mapDispatchToProps = (dispatch)=>{
     return {
-        onIncrement : ()=> dispatch(incrementAsync()),
-        onAdd : (number)=> dispatch(add(number))
+        onIncrement : ()=> dispatch(counterActions.increment())
+        // onAdd : (number)=> dispatch(add(number))
     }
 }
 

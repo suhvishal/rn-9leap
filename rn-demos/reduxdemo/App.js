@@ -3,13 +3,13 @@ import {View, Text, StyleSheet} from 'react-native';
 import { Provider } from 'react-redux';
 import AnotherCounter from './src/components/AnotherCounter';
 import Counter from './src/components/Counter';
-import store from './store';
 
+import newStore from './newStore'
 
 class App extends Component {
   render() {
     return (
-      <Provider store={store}>
+      <Provider store={newStore}>
         <View style={styles.container}>
           <Counter />
           <AnotherCounter />
